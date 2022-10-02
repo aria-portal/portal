@@ -1,0 +1,25 @@
+{
+    "timeout": 10,
+    "source": {
+        "directories": [
+            "src"
+        ],
+        "excludes": [
+            "/\\Test\\.php/",
+             "/\\Mock\\.php/",
+             "WebTestCaseWithWiremock.php"
+        ]
+    },
+    "logs": {
+        "text": "var/log/infection.log"
+    },
+    "mutators": {
+        "@default": true
+    },
+    "tmpDir": "var/cache",
+    "phpUnit": {
+        "customPath": "bin\/phpunit"
+    },
+    "bootstrap": "test_bootstrap.php",
+    "testFrameworkOptions": "--exclude-group Acceptance"
+}

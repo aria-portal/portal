@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/8.5/phpunit.xsd"
+         bootstrap="config/bootstrap.php"
+         executionOrder="random"
+         convertDeprecationsToExceptions="true"
+         colors="true"
+         verbose="true"
+         cacheResultFile=".phpunit.cache/test-results"
+>
+
+    <php>
+        <env name="KERNEL_CLASS" value="App\Kernel"/>
+        <env name="DATABASE_URL" value=""/>
+    </php>
+
+    <testsuites>
+        <testsuite name="Acceptance-Tests">
+            <directory>tests/Acceptance</directory>
+        </testsuite>
+        <testsuite name="Symfony Unit-Tests">
+            <directory>tests/Unit</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">src</directory>
+            <exclude>
+                <directory>src/tests</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+</phpunit>
